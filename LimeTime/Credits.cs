@@ -22,7 +22,7 @@ namespace LimeTime
 
         private void githubLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Process.Start("https://github.com/Tenryu278?tab=repositories"); //TODO: change URL
+            Process.Start("https://github.com/Tenryu278/LimeTime");
         }
 
         private void label3dsdb_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
