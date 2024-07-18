@@ -12,35 +12,42 @@ namespace LimeTime
 {
     public partial class TitleListForm : Form
     {
+        object[] names;
+
         public TitleListForm(string tilteID, string region)
         {
             InitializeComponent();
+
+            RegionLabel.Text = region;
+            TitleIDBox.Text = tilteID;
+
+            names = TitleList.GetColumn("Name");
+            TitleListBox.Items.AddRange(names);
+
             string[] parameters = new string[] { "Name", "UID", "Version", "Size", "Product Code", "Publisher" };
             string[] values = TitleList.GetFrom("TitleID", tilteID, parameters);
             if (values != null )
                 TitleTextBox.Text = values[0];
-
-            RegionLabel.Text = region;
-
-            object[] items = TitleList.GetColumn("Name");
-            TitleListBox.Items.AddRange(items);
         }
 
-        private void ChangeTitle(string TitleName) 
+        private void ChangeTitle(int TitleIndex) 
         {
-            TitleTextBox.Text = TitleName;
-            string[] parameters = new string[] { "TitleID"};
-            TitleList.GetFrom("Name", "Shovel Software Insurance Claim", parameters);
+            string[] parameters = new string[]{ "TitleID", "UID", "Version", "Size", "Product Code", "Publisher" };
+            object[] vals = TitleList.GetRowObjects(TitleIndex, parameters);
+
+            TitleTextBox.Text = names[TitleIndex].ToString();
+            TitleIDBox.Text = vals[0].ToString();
         }
 
         private void TitleListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ChangeTitle(TitleListBox.SelectedItem.ToString());
+            ChangeTitle(TitleListBox.SelectedIndex);
         }
 
-        private void TitleTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        public string ShowAndGetDialog()
         {
-            e.Handled = true;
+            ShowDialog();
+            return TitleIDBox.Text;
         }
     }
 }

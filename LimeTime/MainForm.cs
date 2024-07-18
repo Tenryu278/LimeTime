@@ -187,7 +187,14 @@ namespace LimeTime
         private void TitledbButton_Click(object sender, EventArgs e)
         {
             var dlg = new TitleListForm(TIDList.SelectedItem.ToString(), RegionBox.SelectedItem.ToString());
-            dlg.ShowDialog();
+            string result = dlg.ShowAndGetDialog();
+
+            if (result != TIDBox.Text)
+            {
+                editing = true;
+                TIDBox.Text = result;
+                TIDSave();
+            }
         }
 
         private void CreditsBtn_Click(object sender, EventArgs e)

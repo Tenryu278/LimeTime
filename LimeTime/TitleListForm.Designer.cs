@@ -32,6 +32,7 @@
             this.TitleListBox = new System.Windows.Forms.ListBox();
             this.TitleTextBox = new System.Windows.Forms.TextBox();
             this.RegionLabel = new System.Windows.Forms.Label();
+            this.TitleIDBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // TitleListBox
@@ -51,9 +52,9 @@
             // 
             this.TitleTextBox.Location = new System.Drawing.Point(249, 77);
             this.TitleTextBox.Name = "TitleTextBox";
+            this.TitleTextBox.ReadOnly = true;
             this.TitleTextBox.Size = new System.Drawing.Size(225, 25);
             this.TitleTextBox.TabIndex = 4;
-            this.TitleTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TitleTextBox_KeyPress);
             // 
             // RegionLabel
             // 
@@ -65,11 +66,20 @@
             this.RegionLabel.TabIndex = 5;
             this.RegionLabel.Text = "EUR";
             // 
+            // TitleIDBox
+            // 
+            this.TitleIDBox.Location = new System.Drawing.Point(249, 146);
+            this.TitleIDBox.Name = "TitleIDBox";
+            this.TitleIDBox.ReadOnly = true;
+            this.TitleIDBox.Size = new System.Drawing.Size(225, 25);
+            this.TitleIDBox.TabIndex = 6;
+            // 
             // TitleListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(486, 354);
+            this.Controls.Add(this.TitleIDBox);
             this.Controls.Add(this.RegionLabel);
             this.Controls.Add(this.TitleTextBox);
             this.Controls.Add(this.TitleListBox);
@@ -79,12 +89,12 @@
             this.Text = "GameTitle";
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         #endregion
         private System.Windows.Forms.ListBox TitleListBox;
         private System.Windows.Forms.TextBox TitleTextBox;
         private System.Windows.Forms.Label RegionLabel;
+        private System.Windows.Forms.TextBox TitleIDBox;
     }
 }
