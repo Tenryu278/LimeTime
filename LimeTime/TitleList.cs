@@ -109,7 +109,8 @@ namespace LimeTime
         }
 
         /// <summary>
-        /// 指定された <paramref name="sourceKey"/> の値が <paramref name="souceValue"/> である行に格納された <paramref name="parameters"/> 列の値を全て読み取ります
+        /// 指定された <paramref name="sourceKey"/> の値が <paramref name="souceValue"/> である行に格納された <paramref name="parameters"/> 列の値を全て読み取ります。
+        /// 主キーに設定可能である必要があります
         /// </summary>
         /// <param name="sourceKey"></param>
         /// <param name="souceValue"></param>
@@ -142,28 +143,31 @@ namespace LimeTime
             return database.Columns[parameter].ItemArray();
         }
 
-        //debug
-        private static void check() 
+        /// <summary>
+        /// 指定された<paramref name="index"/>に格納された<see cref="DataRow"/>を読み取ります
+        /// </summary>
+        /// <param name="index"></param>
+        /// <returns></returns>
+        public static DataRow GetRow(int index)
         {
-            object[] objs = database.Columns["Name"].ItemArray();
-            IDictionary<object, int> keyValuePairs = new Dictionary<object, int>();
-            foreach (object obj in objs) 
-            {
-                if (!keyValuePairs.ContainsKey(obj)) 
-                {
-                    keyValuePairs.Add(obj, 0);
-                }
-                else 
-                {
-                    keyValuePairs[obj] += 1;
-                }
-            }
+            return database.Rows[index];
+        }
 
-            foreach(var a in keyValuePairs) 
+        /// <summary>
+        /// 指定された<paramref name="index"/>に格納された<see cref="DataRow"/>の、
+        /// <paramref name="parameters"/>列の値を読み取ります
+        /// </summary>
+        /// <param name="index"></param>
+        /// <returns></returns>
+        public static object[] GetRowObjects(int index, string[] parameters)
+        {
+            object[] result = new object[parameters.Length];
+
+            for(int i = 0; i < parameters.Length; i++)
             {
-                if (a.Value > 0)
-                    MessageBox.Show($"{a.Key.ToString()}\r{a.Value.ToString()}");
+                result[i] = database.Rows[index][parameters[i]];
             }
+            return result;
         }
     }
 }

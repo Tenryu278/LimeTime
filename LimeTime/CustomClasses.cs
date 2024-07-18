@@ -32,21 +32,6 @@ namespace LimeTime
             return result;
         }
 
-        /// <summary>
-        /// 一意ではない <see cref="DataColumn"/> の値に <see cref="DataTable.PrimaryKey"/> の値を追加し、一意の列に設定します
-        /// </summary>
-        /// <param name="column"></param>
-        /// <param name="PriKey"></param>
-        public static void ToUnique(this System.Data.DataColumn column, DataColumn[] PriKey) 
-        {
-            object[] vals = column.ItemArray();
-            object[] group = vals.GroupBy(value => value).Where(value => value.Count() > 1).Select(Group => Group.Key).ToArray();
-
-            DataTable parent = column.Table;
-
-
-        }
-
         #endregion
     }
 }
