@@ -33,10 +33,11 @@
             this.githubLabel = new System.Windows.Forms.LinkLabel();
             this.VersionLabel = new System.Windows.Forms.Label();
             this.creditsBox = new System.Windows.Forms.GroupBox();
-            this.label3dsdb = new System.Windows.Forms.LinkLabel();
-            this.lime3ds = new System.Windows.Forms.LinkLabel();
-            this.thx2 = new System.Windows.Forms.Label();
             this.thx1 = new System.Windows.Forms.Label();
+            this.thx2 = new System.Windows.Forms.Label();
+            this.lime3ds = new System.Windows.Forms.LinkLabel();
+            this.label3dsdb = new System.Windows.Forms.LinkLabel();
+            this.Json = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
             this.creditsBox.SuspendLayout();
             this.SuspendLayout();
@@ -89,6 +90,7 @@
             // 
             // creditsBox
             // 
+            this.creditsBox.Controls.Add(this.Json);
             this.creditsBox.Controls.Add(this.thx1);
             this.creditsBox.Controls.Add(this.thx2);
             this.creditsBox.Controls.Add(this.lime3ds);
@@ -98,7 +100,35 @@
             this.creditsBox.Size = new System.Drawing.Size(318, 169);
             this.creditsBox.TabIndex = 4;
             this.creditsBox.TabStop = false;
-            this.creditsBox.Text = "Thaks for :";
+            // 
+            // thx1
+            // 
+            this.thx1.AutoSize = true;
+            this.thx1.Location = new System.Drawing.Point(135, 38);
+            this.thx1.Name = "thx1";
+            this.thx1.Size = new System.Drawing.Size(95, 18);
+            this.thx1.TabIndex = 3;
+            this.thx1.Text = "3ds title list";
+            // 
+            // thx2
+            // 
+            this.thx2.AutoSize = true;
+            this.thx2.Location = new System.Drawing.Point(135, 85);
+            this.thx2.Name = "thx2";
+            this.thx2.Size = new System.Drawing.Size(89, 18);
+            this.thx2.TabIndex = 2;
+            this.thx2.Text = "developers";
+            // 
+            // lime3ds
+            // 
+            this.lime3ds.AutoSize = true;
+            this.lime3ds.Location = new System.Drawing.Point(53, 85);
+            this.lime3ds.Name = "lime3ds";
+            this.lime3ds.Size = new System.Drawing.Size(76, 18);
+            this.lime3ds.TabIndex = 1;
+            this.lime3ds.TabStop = true;
+            this.lime3ds.Text = "Lime3DS";
+            this.lime3ds.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lime3ds_LinkClicked);
             // 
             // label3dsdb
             // 
@@ -111,34 +141,16 @@
             this.label3dsdb.Text = "3dsdb";
             this.label3dsdb.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.label3dsdb_LinkClicked);
             // 
-            // lime3ds
+            // Json
             // 
-            this.lime3ds.AutoSize = true;
-            this.lime3ds.Location = new System.Drawing.Point(53, 108);
-            this.lime3ds.Name = "lime3ds";
-            this.lime3ds.Size = new System.Drawing.Size(76, 18);
-            this.lime3ds.TabIndex = 1;
-            this.lime3ds.TabStop = true;
-            this.lime3ds.Text = "Lime3DS";
-            this.lime3ds.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lime3ds_LinkClicked);
-            // 
-            // thx2
-            // 
-            this.thx2.AutoSize = true;
-            this.thx2.Location = new System.Drawing.Point(135, 108);
-            this.thx2.Name = "thx2";
-            this.thx2.Size = new System.Drawing.Size(89, 18);
-            this.thx2.TabIndex = 2;
-            this.thx2.Text = "developers";
-            // 
-            // thx1
-            // 
-            this.thx1.AutoSize = true;
-            this.thx1.Location = new System.Drawing.Point(135, 38);
-            this.thx1.Name = "thx1";
-            this.thx1.Size = new System.Drawing.Size(95, 18);
-            this.thx1.TabIndex = 3;
-            this.thx1.Text = "3ds title list";
+            this.Json.AutoSize = true;
+            this.Json.Location = new System.Drawing.Point(43, 136);
+            this.Json.Name = "Json";
+            this.Json.Size = new System.Drawing.Size(133, 18);
+            this.Json.TabIndex = 4;
+            this.Json.TabStop = true;
+            this.Json.Text = "Newtonsoft.Json";
+            this.Json.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Json_LinkClicked);
             // 
             // Credits
             // 
@@ -176,5 +188,6 @@
         private System.Windows.Forms.Label thx2;
         private System.Windows.Forms.LinkLabel lime3ds;
         private System.Windows.Forms.LinkLabel label3dsdb;
+        private System.Windows.Forms.LinkLabel Json;
     }
 }

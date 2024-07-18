@@ -34,5 +34,10 @@ namespace LimeTime
         {
             Process.Start("https://github.com/Lime3DS/Lime3DS");
         }
+
+        private void Json_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process.Start("https://github.com/JamesNK/Newtonsoft.Json");
+        }
     }
 }
