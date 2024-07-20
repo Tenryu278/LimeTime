@@ -14,12 +14,12 @@ using Newtonsoft.Json;
 
 namespace LimeTime
 {
-    internal class TitleList
+    public class TitleList
     {
         /// <summary>
         /// タイトルDBを格納します
         /// </summary>
-        static DataTable database = new DataTable();
+        DataTable database = new DataTable();
 
         /// <summary>
         /// 指定されたリージョンのタイトルDBリストを取得または設定します 
@@ -96,7 +96,7 @@ namespace LimeTime
         /// <param name="titleid">TitleID</param>
         /// <param name="parameter"><list type="bullet"><item>Name</item><item>UID</item><item>TitleID</item><item>Version</item><item>Size</item><item>Product Code</item><item>Publisher</item></list></param>
         /// <returns><paramref name="parameter"/> 列に格納されている値。見つからない場合、空の文字列</returns>
-        public static string GetFrom(string titleid, string parameter)
+        public string GetFrom(string titleid, string parameter)
         {
             return GetFrom("TitleID", titleid, new string[] { parameter })[0];
         }
@@ -109,7 +109,7 @@ namespace LimeTime
         /// <param name="souceValue"></param>
         /// <param name="parameters"></param>
         /// <returns><paramref name="parameters"/> 列に格納されている値の配列。見つからない場合、空の文字列が配列に格納されます。</returns>
-        public static string[] GetFrom(string sourceKey, string souceValue, string[] parameters)
+        public string[] GetFrom(string sourceKey, string souceValue, string[] parameters)
         {
             if (!database.Columns.Contains(sourceKey))
                 return null;
@@ -131,7 +131,7 @@ namespace LimeTime
         /// </summary>
         /// <param name="parameter">読み取る <see cref="DataColumn"/> の列名</param>
         /// <returns>オブジェクト型の配列。列が見つからない場合、null</returns>
-        public static object[] GetColumn(string parameter) 
+        public object[] GetColumn(string parameter) 
         {
             return database.Columns[parameter].ItemArray();
         }
@@ -141,7 +141,7 @@ namespace LimeTime
         /// </summary>
         /// <param name="index"></param>
         /// <returns></returns>
-        public static DataRow GetRow(int index)
+        public DataRow GetRow(int index)
         {
             return database.Rows[index];
         }
@@ -152,7 +152,7 @@ namespace LimeTime
         /// </summary>
         /// <param name="index"></param>
         /// <returns></returns>
-        public static object[] GetRowObjects(int index, string[] parameters)
+        public object[] GetRowObjects(int index, string[] parameters)
         {
             object[] result = new object[parameters.Length];
 

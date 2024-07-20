@@ -14,18 +14,21 @@ namespace LimeTime
     {
         object[] names;
 
-        public TitleListForm(string tilteID, string region)
+        TitleList t;
+
+        public TitleListForm(string tilteID, TitleList titleList)
         {
             InitializeComponent();
+            t = titleList;
 
-            RegionLabel.Text = region;
+            RegionLabel.Text = t.Region;
             TitleIDBox.Text = tilteID;
 
-            names = TitleList.GetColumn("Name");
+            names = t.GetColumn("Name");
             TitleListBox.Items.AddRange(names);
 
             string[] parameters = new string[] { "Name", "UID", "Version", "Size", "Product Code", "Publisher" };
-            string[] values = TitleList.GetFrom("TitleID", tilteID, parameters);
+            string[] values = t.GetFrom("TitleID", tilteID, parameters);
             if (values != null )
                 TitleTextBox.Text = values[0];
         }
@@ -33,7 +36,7 @@ namespace LimeTime
         private void ChangeTitle(int TitleIndex) 
         {
             string[] parameters = new string[]{ "TitleID", "UID", "Version", "Size", "Product Code", "Publisher" };
-            object[] vals = TitleList.GetRowObjects(TitleIndex, parameters);
+            object[] vals = t.GetRowObjects(TitleIndex, parameters);
 
             TitleTextBox.Text = names[TitleIndex].ToString();
             TitleIDBox.Text = vals[0].ToString();

@@ -30,6 +30,8 @@ namespace LimeTime
 
         bool editing = false;
 
+        TitleList titleList;
+
         private void OpenButton_Click(object sender, EventArgs e)
         {
             var f = new OpenFileDialog()
@@ -118,7 +120,7 @@ namespace LimeTime
                 TitledbButton.Enabled = true;
                 TIDBox.Text  = TIDList.SelectedItem.ToString();
                 SetFormat();
-                TitleName.Text = TitleList.GetFrom(TIDList.SelectedItem.ToString(), "Name");
+                TitleName.Text = titleList.GetFrom(TIDList.SelectedItem.ToString(), "Name");
                 if (TitleName.Text == String.Empty)
                     TitleName.Text = "Unknown";
             }
@@ -132,11 +134,11 @@ namespace LimeTime
                 RegionBox.Enabled = false;
                 return;
             }
-            TitleList titleList = new TitleList();
+            titleList = new TitleList();
             titleList.Region = RegionBox.SelectedItem.ToString();
 
             TIDBox.Items.Clear();
-            object[] items = TitleList.GetColumn("TitleID");
+            object[] items = titleList.GetColumn("TitleID");
             TIDBox.Items.AddRange(items);
 
             TIDList_SelectedIndexChanged(null,null); //ChangeTitleLabel
@@ -187,7 +189,7 @@ namespace LimeTime
 
         private void TitledbButton_Click(object sender, EventArgs e)
         {
-            var dlg = new TitleListForm(TIDList.SelectedItem.ToString(), RegionBox.SelectedItem.ToString());
+            var dlg = new TitleListForm(TIDList.SelectedItem.ToString(), titleList);
             string result = dlg.ShowAndGetDialog();
 
             if (result != TIDBox.Text)
