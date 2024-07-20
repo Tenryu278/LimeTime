@@ -132,7 +132,8 @@ namespace LimeTime
                 RegionBox.Enabled = false;
                 return;
             }
-            new TitleList(RegionBox.SelectedItem.ToString());
+            TitleList titleList = new TitleList();
+            titleList.Region = RegionBox.SelectedItem.ToString();
 
             TIDBox.Items.Clear();
             object[] items = TitleList.GetColumn("TitleID");

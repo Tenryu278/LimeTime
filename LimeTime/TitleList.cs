@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
@@ -15,87 +17,78 @@ namespace LimeTime
     internal class TitleList
     {
         /// <summary>
-        /// <see cref="database"/> に指定されたリージョンのDBを格納します
-        /// </summary>
-        /// <param name="region"></param>
-        public TitleList(string region) 
-        {
-            database = SetRegion(region);
-        }
-
-        /// <summary>
         /// タイトルDBを格納します
         /// </summary>
         static DataTable database = new DataTable();
 
         /// <summary>
-        /// 指定されたリージョンのタイトルDBリストを取得します 
-        /// Read title database of specified region.
+        /// 指定されたリージョンのタイトルDBリストを取得または設定します 
+        /// Read or set title database of specified region.
         /// </summary>
-        /// <param name="region"><list type="bullet"><item>"EUR"</item><item>"USA"</item><item>"JPN"</item><item>"KRA"</item><item>"TWN"</item></list></param>
-        /// <returns>
-        /// A DataTable of tltle database. 
-        /// This haves TitleName, TitleID, and more info of games. Use when searching a game. 
-        /// </returns>
-        private DataTable SetRegion(string region)
+        public string Region 
         {
-            DataTable titledb = new DataTable(); //return
-
-            DataRow row = titledb.NewRow(); //Add for titledb
-
-            string json; //get from resource
-
-            switch (region)
+            get
             {
-                case "EUR":
-                    json = Properties.Resources.list_GB;
-                    break;
-
-                case "USA":
-                    json = Properties.Resources.list_US;
-                    break;
-
-                case "JPN":
-                    json = Properties.Resources.list_JP;
-                    break;
-
-                case "KRA":
-                    json = Properties.Resources.list_KR;
-                    break;
-
-                case "TWN":
-                    json = Properties.Resources.list_TW;
-                    break;
-
-                default:
-                    return titledb;
+                return database.TableName;
             }
-            using (var reader = new JsonTextReader(new StringReader(json)))
+            set 
             {
-                while (reader.Read())
+                string json; //get from resource
+
+                switch (value)
                 {
-                    if (reader.TokenType == JsonToken.StartObject && titledb.Columns.Count > 0)
+                    case "EUR":
+                        json = Properties.Resources.list_GB;
+                        break;
+
+                    case "USA":
+                        json = Properties.Resources.list_US;
+                        break;
+
+                    case "JPN":
+                        json = Properties.Resources.list_JP;
+                        break;
+
+                    case "KRA":
+                        json = Properties.Resources.list_KR;
+                        break;
+
+                    case "TWN":
+                        json = Properties.Resources.list_TW;
+                        break;
+
+                    default:
+                        throw new ArgumentException(@"The region is must be ""EUR"", ""USA"", ""JPN"", ""KRA"", ""TWN"".", value);
+                }
+
+                database = new DataTable(value); //Init using region
+
+                DataRow row = database.NewRow(); //Add for titledb
+
+                using (var reader = new JsonTextReader(new StringReader(json)))
+                {
+                    while (reader.Read())
                     {
-                        titledb.Rows.Add(row);
-                        row = titledb.NewRow();
-                    }
+                        if (reader.TokenType == JsonToken.StartObject && database.Columns.Count > 0)
+                        {
+                            database.Rows.Add(row);
+                            row = database.NewRow();
+                        }
 
-                    if (reader.TokenType == JsonToken.PropertyName)
-                    {
-                        string proname = reader.Value.ToString();
-                        string val = reader.ReadAsString();
+                        if (reader.TokenType == JsonToken.PropertyName)
+                        {
+                            string proname = reader.Value.ToString();
+                            string val = reader.ReadAsString();
 
-                        if (!titledb.Columns.Contains(proname)) 
-                            titledb.Columns.Add(proname);
+                            if (!database.Columns.Contains(proname))
+                                database.Columns.Add(proname);
 
-                        row[proname] = val;
+                            row[proname] = val;
+                        }
                     }
                 }
             }
-            return titledb;
         }
-
-
 
         /// <summary>
         /// 指定された <paramref name="titleid"/> と同じ行に格納されている <paramref name="parameter"/> 列の値を読み取ります
