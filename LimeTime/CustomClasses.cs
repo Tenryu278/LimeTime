@@ -1,10 +1,6 @@
-﻿using System;
-using System.Data;
-using System.Linq;
-using System.Text.RegularExpressions;
-using System.Windows.Forms;
+﻿using System.Data;
 
-namespace LimeTime 
+namespace LimeTime
 {
     public static class Extensions
     {
