@@ -7,7 +7,7 @@ namespace LimeTime
 {
     public partial class MainForm : System.Windows.Forms.Form
     {
-        public MainForm()
+        public MainForm(string[] args)
         {
             InitializeComponent();
 
@@ -15,6 +15,9 @@ namespace LimeTime
             TIDSupportlab.Text = $"HexOnly 0/{TIDBox.MaxLength}";
             TimeSuportlab.Text = "Num and Colon Only";
             this.FormClosing += Form_FormClosing;
+
+            if (args.Length > 0) 
+                OpenFile(args[0]);
         }
 
         /// <summary>
@@ -38,18 +41,24 @@ namespace LimeTime
                 Filter = filt
             };
             if (f.ShowDialog() == DialogResult.OK) 
-            {
-                dic.Clear();
-                TIDList.Items.Clear();
+                OpenFile(f.FileName);
+        }
 
-                fpath = f.FileName;
-                dic = ReadData(fpath);
-                foreach(var pair in dic) 
-                    TIDList.Items.Add(pair.Key);
+        private void OpenFile(string path)
+        {
+            if (!File.Exists(path))
+                return;
 
-                TIDList.SetSelected(0, true);
-                StartUp();
-            }
+            dic.Clear();
+            TIDList.Items.Clear();
+
+            fpath = path;
+            dic = ReadData(fpath);
+            foreach (var pair in dic)
+                TIDList.Items.Add(pair.Key);
+
+            TIDList.SetSelected(0, true);
+            StartUp();
         }
 
         /// <summary>
@@ -63,6 +72,7 @@ namespace LimeTime
             SaveAsButton.Enabled = true;
             CreateLabel.Visible = false;
         }
+
 
         /// <summary>
         /// <paramref name="path"/>で指定されたファイルからタイトルIDとプレイ時間を読み取ります
