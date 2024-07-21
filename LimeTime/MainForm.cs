@@ -44,7 +44,13 @@ namespace LimeTime
                 OpenFile(f.FileName);
         }
 
-        private void OpenFile(string path)
+        private void MainForm_DragEnter(object sender, DragEventArgs e) 
+            => e.Effect = DragDropEffects.Copy;
+
+        private void MainForm_DragDrop(object sender, DragEventArgs e) 
+            => OpenFile(((string[])e.Data.GetData(DataFormats.FileDrop))?[0]);
+
+        private void OpenFile(string path) 
         {
             if (!File.Exists(path))
                 return;
