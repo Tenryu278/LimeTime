@@ -26,7 +26,7 @@ namespace LimeTime
         /// </summary>
         Dictionary<string, ulong> dic = new Dictionary<string, ulong>();
 
-        readonly string filt = "Lime3DS play_time | *.bin";
+        const string filt = "Lime3DS play_time | *.bin";
 
         string fpath;
 
