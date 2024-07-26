@@ -269,7 +269,7 @@
             this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(516, 25);
             this.textBox1.TabIndex = 12;
-            this.textBox1.Text = "\"C:\\Users\\{UserName}\\AppData\\Roaming\\Citra\\log\\play_time.bin\"\r\n";
+            this.textBox1.Text = "C:\\Users\\%USERNAME%\\AppData\\Roaming\\Citra\\log\\play_time.bin";
             this.textBox1.Click += new System.EventHandler(this.PathBox_Click);
             // 
             // Addbtn
