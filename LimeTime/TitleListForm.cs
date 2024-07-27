@@ -14,7 +14,7 @@ namespace LimeTime
             InitializeComponent();
             t = titleList;
 
-            RegionLabel.Text = t.Region;
+            RegionLabel.Text = t.Region.ToString();
             TitleIDBox.Text = tilteID;
 
             names = t.GetColumn("Name");

@@ -8,6 +8,15 @@ using Newtonsoft.Json;
 //https://github.com/hax0kartik/3dsdb
 //Thanks for Contributors
 
+public enum Region : int
+{
+    EUR,
+    USA,
+    JPN,
+    KOR,
+    TWN
+}
+
 namespace LimeTime
 {
     public class TitleList
@@ -17,15 +26,17 @@ namespace LimeTime
         /// </summary>
         DataTable database = new DataTable();
 
+        Region curRegion;
+
         /// <summary>
         /// 指定されたリージョンのタイトルDBリストを取得または設定します 
         /// Read or set title database of specified region.
         /// </summary>
-        public string Region 
+        public Region Region 
         {
             get
             {
-                return database.TableName;
+                return curRegion;
             }
             set 
             {
@@ -33,31 +44,33 @@ namespace LimeTime
 
                 switch (value)
                 {
-                    case "EUR":
+                    case Region.EUR:
                         json = Properties.Resources.list_GB;
                         break;
 
-                    case "USA":
+                    case Region.USA:
                         json = Properties.Resources.list_US;
                         break;
 
-                    case "JPN":
+                    case Region.JPN:
                         json = Properties.Resources.list_JP;
                         break;
 
-                    case "KOR":
+                    case Region.KOR:
                         json = Properties.Resources.list_KR;
                         break;
 
-                    case "TWN":
+                    case Region.TWN:
                         json = Properties.Resources.list_TW;
                         break;
 
                     default:
-                        throw new ArgumentException(@"The region is must be ""EUR"", ""USA"", ""JPN"", ""KOR"", ""TWN"".", value);
+                        throw new ArgumentException(@"The region is must be ""EUR"", ""USA"", ""JPN"", ""KOR"", ""TWN"".", value.ToString());
                 }
 
-                database = new DataTable(value); //Init using region
+                database = new DataTable(); //Init using region
+
+                curRegion = value;
 
                 DataRow row = database.NewRow(); //Add for titledb
 
