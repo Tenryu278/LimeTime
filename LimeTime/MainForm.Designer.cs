@@ -124,7 +124,7 @@
             "EUR",
             "USA",
             "JPN",
-            "KRA",
+            "KOR",
             "TWN"});
             this.RegionBox.Name = "RegionBox";
             this.RegionBox.Size = new System.Drawing.Size(100, 38);
@@ -385,8 +385,8 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
             this.Text = "LimeTime";
-            this.DragEnter += new System.Windows.Forms.DragEventHandler(this.MainForm_DragEnter);
             this.DragDrop += new System.Windows.Forms.DragEventHandler(this.MainForm_DragDrop);
+            this.DragEnter += new System.Windows.Forms.DragEventHandler(this.MainForm_DragEnter);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.FormatBox.ResumeLayout(false);

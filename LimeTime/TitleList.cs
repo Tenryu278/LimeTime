@@ -45,7 +45,7 @@ namespace LimeTime
                         json = Properties.Resources.list_JP;
                         break;
 
-                    case "KRA":
+                    case "KOR":
                         json = Properties.Resources.list_KR;
                         break;
 
@@ -54,7 +54,7 @@ namespace LimeTime
                         break;
 
                     default:
-                        throw new ArgumentException(@"The region is must be ""EUR"", ""USA"", ""JPN"", ""KRA"", ""TWN"".", value);
+                        throw new ArgumentException(@"The region is must be ""EUR"", ""USA"", ""JPN"", ""KOR"", ""TWN"".", value);
                 }
 
                 database = new DataTable(value); //Init using region
