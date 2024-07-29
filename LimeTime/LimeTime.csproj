@@ -123,11 +123,11 @@
   <ItemGroup>
     <None Include="packages.config" />
     <None Include="Properties\app.manifest" />
-    <None Include="Resources\list_GB.json" />
-    <None Include="Resources\list_JP.json" />
-    <None Include="Resources\list_KR.json" />
-    <None Include="Resources\list_TW.json" />
-    <None Include="Resources\list_US.json" />
+    <None Include="Resources\3dsdb\jsons\list_GB.json" />
+    <None Include="Resources\3dsdb\jsons\list_JP.json" />
+    <None Include="Resources\3dsdb\jsons\list_KR.json" />
+    <None Include="Resources\3dsdb\jsons\list_TW.json" />
+    <None Include="Resources\3dsdb\jsons\list_US.json" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.8">

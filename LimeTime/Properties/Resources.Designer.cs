@@ -88,7 +88,7 @@ namespace LimeTime.Properties {
         ///        &quot;Version&quot;: &quot;N/A&quot;,
         ///        &quot;Size&quot;: &quot;170.3 MB [1362 blocks]&quot;,
         ///        &quot;Product Code&quot;: &quot;KTR-N-CD9P&quot;,
-        ///        &quot;Publisher&quot;: [残りの文字列は切り詰められました]&quot;; に類似しているローカライズされた文字列を検索します。
+        ///    [残りの文字列は切り詰められました]&quot;; に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string list_GB {
             get {
@@ -108,7 +108,7 @@ namespace LimeTime.Properties {
         ///        &quot;Publisher&quot;: &quot;\u30b8\u30cb\u30a2\u30b9\u30fb\u30bd\u30ce\u30ea\u30c6\u30a3&quot;
         ///    },
         ///    {
-        ///        &quot;Name&quot;: &quot;Update data Ver. 1.2 Beyblade B Bay Logger &amp; Puzzle(\u66f4\u65b0\ [残りの文字列は切り詰められました]&quot;; に類似しているローカライズされた文字列を検索します。
+        ///        &quot;Name&quot;: &quot;Update data Ver. 1.2 Beyblade B Bay Logger &amp; Puzzle(\u [残りの文字列は切り詰められました]&quot;; に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string list_JP {
             get {
@@ -128,7 +128,7 @@ namespace LimeTime.Properties {
         ///        &quot;Publisher&quot;: &quot;Nintendo&quot;
         ///    },
         ///    {
-        ///        &quot;Name&quot;: &quot;Super Mario Maker for Nintendo 3DS Update Data VER.1.05(\uc288\ud37c \ub9c8\ub9ac\uc624 \uba54\uc774\ucee4 for \ub2cc\ud150\ub [残りの文字列は切り詰められました]&quot;; に類似しているローカライズされた文字列を検索します。
+        ///        &quot;Name&quot;: &quot;Super Mario Maker for Nintendo 3DS Update Data VER.1.05(\uc288\ud37c \ub9c8\ub9ac\uc624 \uba54\uc774\ucee4 for \ub2 [残りの文字列は切り詰められました]&quot;; に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string list_KR {
             get {
@@ -149,7 +149,7 @@ namespace LimeTime.Properties {
         ///    },
         ///    {
         ///        &quot;Name&quot;: &quot;Update information VER. 1.4.0 Monster Hunter XX(\u66f4\u65b0\u8cc7\u6599 Ver. 1.4.0 MONSTER HUNTER XX)&quot;,
-        ///        &quot;UID&quot;: &quot;50010000042617&quot;, [残りの文字列は切り詰められました]&quot;; に類似しているローカライズされた文字列を検索します。
+        ///        &quot;UID&quot;: &quot;5001 [残りの文字列は切り詰められました]&quot;; に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string list_TW {
             get {
@@ -174,7 +174,7 @@ namespace LimeTime.Properties {
         ///        &quot;TitleID&quot;: &quot;0004000E00030800&quot;,
         ///        &quot;Version&quot;: &quot;3152&quot;,
         ///        &quot;Size&quot;: &quot;5.22 MB [42 blocks]&quot;,
-        ///        &quot;Product Code&quot;: &quot;CTR-U-AMKE&quot;, [残りの文字列は切り詰められました]&quot;; に類似しているローカライズされた文字列を検索します。
+        ///        &quot;Product Code [残りの文字列は切り詰められました]&quot;; に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string list_US {
             get {

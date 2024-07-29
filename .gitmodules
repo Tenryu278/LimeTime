@@ -1,0 +1,3 @@
+[submodule "LimeTime/Resources/3dsdb"]
+	path = LimeTime/Resources/3dsdb
+	url = https://github.com/hax0kartik/3dsdb.git
