@@ -1,0 +1,26 @@
+name: msbuild_CI
+on: [push]
+
+jobs:
+  build:
+    runs-on: windows-latest
+    env:
+      Solution_Name: LimeTime.sln
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4.1.7
+        with:
+          fetch-depth: 0
+          submodules: true
+
+      - name: Setup msbuild
+        uses: microsoft/setup-msbuild@v2
+
+      - name: Setup NuGet
+        uses: nuget/setup-nuget@v1.2.0
+
+      - name: Restore NuGet packages
+        run: nuget restore $env:Solution_Name
+
+      - name: Build Solution
+        run: msbuild $env:Solution_Name
