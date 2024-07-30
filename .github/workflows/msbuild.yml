@@ -1,5 +1,10 @@
 name: msbuild_CI
-on: [push]
+on: 
+  push:
+    paths:
+      - 'LimeTime/**'
+      - '**.cs'
+      - '**.csproj'
 
 jobs:
   build:
