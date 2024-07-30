@@ -5,6 +5,7 @@ on:
       - 'LimeTime/**'
       - '**.cs'
       - '**.csproj'
+      - '.github/workflows/**'
 
 jobs:
   build:
