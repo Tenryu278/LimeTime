@@ -3,7 +3,7 @@
 
 ![](Icons/LimeTime.png)
 
-[![msbuild_CI](https://github.com/Tenryu278/LimeTime/actions/workflows/msbuild.yml/badge.svg)](https://github.com/Tenryu278/LimeTime/actions/workflows/msbuild.yml)
+[![msbuild_CI](https://github.com/Tenryu278/LimeTime/actions/workflows/msbuild.yml/badge.svg?event=push)](https://github.com/Tenryu278/LimeTime/actions/workflows/msbuild.yml)
 
 # Build
 To build, get the latest [Visual Studio](https://visualstudio.microsoft.com/) and install [.NetFramework SDK](https://dotnet.microsoft.com/download/dotnet-framework)(>=4.8).
